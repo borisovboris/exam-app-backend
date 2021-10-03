@@ -9,10 +9,10 @@
           <a href="#used-technologies">Used Technologies</a>
      </li>
      <li>
-          <a href="#database">Database</a>
+          <a href="#database-diagram">Database Diagram</a>
      </li>
      <li>
-          <a href="#routes">Routes</a>
+          <a href="#routes-table">Routes Table</a>
      </li> 
      <li>
           <a href="#installation">Installation</a>
@@ -39,11 +39,68 @@ This is an online exam platform that allows teachers and students to create acco
 * [TypeORM](https://typeorm.io/#/)
 * [MySQL](https://www.mysql.com/)
 
-## Database
+## Database Diagram
 
 ![database](https://user-images.githubusercontent.com/54534596/135744765-0e2a176e-efab-4adb-b01a-52684068cdef.png)
 
-## Routes
+## Routes Table
+
+URL | Method | Description
+---------|---------|---------
+auth/get-occupation | GET | Returns if a user is a teacher or student
+auth/teacher-register | POST | Registers a teacher
+auth/teacher-login | POST | Logs a teacher 
+auth/student-register | POST | Registers a student
+auth/student-login | POST | Logs a student
+exams | POST | Creates an exam
+exams/:examId | GET | Returns the info of an exam
+exams/:examId | PATCH | Edits an exam
+exams/:examId | DELETE | Deletes an exam
+exams/:examId/questions | GET | Returns the questions of an exam
+exams/add-question | POST | Adds a question to an exam
+exams/:examId/remove-question/:questionId | POST | Removes a question from an exam
+questions | POST | Creates a question
+questions/:questionId | GET | Gets the details of a question
+questions/:questionId | DELETE | Delete a question
+question-types | GET | Returns the types of a question
+sessions | POST | Creates a session
+sessions/:sessionId | GET | Returns the details of a session
+sessions/:sessionId/student-exams | GET | Returns all the student exams in a session
+students/subjects | GET | Returns the subjects of a student
+students/subject/:id/exams | GET | Returns the student exams for a particular subject
+student-answers/assess | POST | Assesses a student answer to an open question
+student-answers/give-answer | POST | Lets a student give answer to a question
+student-choices/select-choice | POST | Selects/deselects a choice of a closed question
+student-exams/:studentExamId | GET | Gets the details of a student exam
+student-exams/:studentExamId/teacher | GET | Gets the questions of a student exam for a teacher
+student-exams/:studentExamId/student | GET | Gets the questions of a student exam for a student
+subjects | POST | Creates a subject
+subjects/:subjectId | GET | Gets the details of a subject
+subjects/:subjectId | PATCH | Edits a subject 
+subjects/:subjectId | DELETE | Deletes a subject
+subjects/:subjectId/exams | GET | Returns the exams of a subject
+subjects/:subjectId/topics | GET | Returns the topics of a subject
+subjects/:subjectId/teachers | GET | Returns the teachers of a subject
+subjects/:subjectId/students | GET | Returns the students of a subject
+subjects/:subjectId/sessions | GET | Returns the sessions of a subject
+subjects/:subjectId/search-teachers/:criterion | GET | Searches for particular teachers that aren't in the subject
+subjects/:subjectId/search-students/:criterion | GET | Searches for particular students that aren't in the subject
+subjects/add-student-to-subject | POST | Adds a student to a subject
+subjects/remove-student-from-subject | POST | Removes a student from a subject
+subjects/add-teacher-to-subject | POST | Adds a teacher to a subject
+subjects/remove-teacher-from-subject | POST | Removes a teacher from a subject
+teachers/subjects | GET | Returns the subjects of a teacher
+topics/add | POST | Creates a topic
+topics/:topicId | GET | Returns the details of a topic
+topics/:topicId | PATCH | Edits a topic
+topics/:topicId | DELETE | Deletes a topic
+topics/:topicId/questions | GET | Returns the questions of a topic
+
+
+
+
+
+
 
 ## Installation
 
@@ -69,7 +126,7 @@ $ npm run start:prod
 * Refactoring complex functions in smaller functions
 * Changing folder structure 
 * Writing guards for particular routes 
-* Implementing refresh token functionality
+* Implementing refresh tokens functionality
 * Implementing token blacklist functionality
 * Adding a global exception handler 
 
